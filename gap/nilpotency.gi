@@ -124,8 +124,8 @@ end );
 #F ClassLimit(n,F) . . . . . . . . . an upper bound for the nilpotency class
 ##
 ## The function returns an upper bound for the nilpotency class of a
-## nilpotent subgroup of GL(n,F). The field F needs to be finite or of
-## char Q (otherwise the function returns fail).
+## nilpotent subgroup of GL(n,F). The field F needs to be finite or Q
+## (otherwise the function returns fail).
 ##
 InstallGlobalFunction( ClassLimit, function(n, F)
     local p, q, t, f, m, s;

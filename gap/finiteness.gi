@@ -137,7 +137,7 @@ SizeOfNilpotentMatGroupRN := function(G)
    g := GeneratorsOfGroup(G);
    p := DetermineAdmissiblePrime(g);
    t := InducedByField(g, GF(p));
-   H := MakeMatGroup(GF(p), t);
+   H := MakeMatGroup(DimensionOfMatrixGroup(G), GF(p), t);
    return SizeOfNilpotentMatGroupFF(H);
 end;
 

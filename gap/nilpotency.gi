@@ -100,12 +100,13 @@ OrbitStabGens := function(G, v)
     return U;
 end;
        
-MakeMatGroup := function(F, gens)
-    local s;
-    s := Set(gens);
-    if Length(s) > 1 then s := Filtered(s, x -> x <> x^0); fi;
-    s := List(s, x -> ImmutableMatrix(F,x));
-    return GroupByGenerators(s);
+MakeMatGroup := function(n, F, gens)
+    local s, one;
+    s := Filtered(gens, x -> x <> x^0);
+    s := Set(s);
+    s := List(s, x -> ImmutableMatrix(F, x));
+    one := IdentityMat(n, F);
+    return GroupByGenerators(s, one);
 end;
 
 #############################################################################
@@ -264,10 +265,10 @@ end );
 ##
 InstallMethod( IsUnipotentMatGroup, true, [IsMatrixGroup], 0,
 function(G)
-    local n, F, g, V, U;
+    local F, n, g, V, U;
 
-    n := DimensionOfMatrixGroup(G);
     F := FieldOfMatrixGroup(G);
+    n := DimensionOfMatrixGroup(G);
     g := List(GeneratorsOfGroup(G), x -> x - x^0);
     U := IdentityMat(n, F);
 
@@ -289,18 +290,19 @@ end );
 ##
 InstallMethod( JordanSplitting, true, [IsMatrixGroup], 0,
 function(G)
-    local g, F, d, S, U;
+    local g, F, n, d, S, U;
 
     # set up
     g := GeneratorsOfGroup(G);
     F := FieldOfMatrixGroup(G);
+    n := DimensionOfMatrixGroup(G);
 
     # split every generator
     d := List(g, JordanDecomposition);
 
     # create new groups
-    S := MakeMatGroup( F, ShallowCopy(List(d, x -> x[1])) );
-    U := MakeMatGroup( F, List(d, x -> (x[2] * x[1]^-1) + One(G)) );
+    S := MakeMatGroup( n, F, ShallowCopy(List(d, x -> x[1])) );
+    U := MakeMatGroup( n, F, List(d, x -> (x[2] * x[1]^-1) + One(G)) );
 
     return [S, U];
 end );
@@ -335,8 +337,8 @@ function(G)
     s := List(GeneratorsOfGroup(G), x -> PAndPrimePart(x,q));
 
     # generate groups
-    B := MakeMatGroup(F, List(s, x -> x[1]));
-    C := MakeMatGroup(F, List(s, x -> x[2]));
+    B := MakeMatGroup(n, F, List(s, x -> x[1]));
+    C := MakeMatGroup(n, F, List(s, x -> x[2]));
 
     return [B,C];
 end );
@@ -349,10 +351,11 @@ end );
 ## group over GF(q). The list g has to be a polycyclic sequence for G.
 ##
 SylowSubgroupOfNilpotentMatGroupFF := function(G, g, p)
-    local F, s, U;
+    local F, n, s, U;
     F := FieldOfMatrixGroup(G);
+    n := DimensionOfMatrixGroup(G);
     s := List(g, x -> PAndPrimePart(x,[p])[1]);
-    U := MakeMatGroup( F, s );
+    U := MakeMatGroup( n, F, s );
     SetIsPGroup(U, true);
     SetPrimePGroup(U, p);
     return U;

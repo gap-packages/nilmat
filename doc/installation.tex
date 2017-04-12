@@ -22,16 +22,3 @@ does not use functions from \package{Polenta} which depend on
 `KASH'. Hence to use \package{Nilmat}, `KASH' installation is not
 required, and all \package{Nilmat} functions run under both
 Windows and Linux.
-
-If your version of {\GAP} is earlier than {\GAP} 4.4.10, then to
-use some \package{Nilmat} facilities such as the library of
-primitive nilpotent subgroups of $GL(n,q)$,
-`MaximalAbsolutelyIrreducibleNilpotentMatGroup', and
-`ReducibleNilpotentMatGroup', you will need updates of the files
-`ffeconway.gi' and `ffe.gi'. These updated files incorporate
-relevant bugfixes, and  are included in the \package{Nilmat}
-directory `etc'. Simply replace the old versions of `ffeconway.gi'
-and `ffe.gi' in the directory `lib' of {\sf GAP} by the updated
-ones. Then start {\sf GAP} with options `-A -N', and type
-`CreateCompletionFiles()'. After carrying out these steps, quit
-{\GAP} and then restart.

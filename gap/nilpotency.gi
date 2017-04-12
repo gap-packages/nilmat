@@ -229,7 +229,7 @@ InstallGlobalFunction( AbelianNormalSeries, function(G, l)
 
     # set up
     n := DimensionOfMatrixGroup(G);
-    p := Characteristic(FieldOfMatrixGroup(G));
+    p := Characteristic(G);
 
     # initialise series
     C := G;
@@ -386,7 +386,7 @@ IsNilpotentMatGroupFF := function(G, l)
     local p, n, J, S, U, P, B, C, s, o, r, b, syl, q, W, V;
 
     Info( InfoNilMat, 1, "start testing nilpotency ");
-    p := Characteristic(FieldOfMatrixGroup(G));
+    p := Characteristic(G);
     n := DimensionOfMatrixGroup(G);
 
     # catch a trivial case

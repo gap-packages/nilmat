@@ -34,7 +34,7 @@ Persons := [
     IsAuthor      := true,
     IsMaintainer  := true,
     Email         := "alla.detinko@nuigalway.ie",
-    WWWHome       := "http://larmor.nuigalway.ie/staff/adetinko.shtml",
+    WWWHome       := "http://www.maths.nuigalway.ie/~detinko/",
     PostalAddress := Concatenation( [
                        "Department of Mathematics\n",
                        "National University of Ireland, Galway\n",
@@ -48,7 +48,7 @@ Persons := [
     IsAuthor      := true,
     IsMaintainer  := true,
     Email         := "beick@tu-bs.de",
-    WWWHome       := "http://www.tu-bs.de/~beick",
+    WWWHome       := "http://www.icm.tu-bs.de/~beick",
     PostalAddress := Concatenation( [
                        "Institut Computational Mathematics\n",
                        "TU Braunschweig\n",
@@ -75,14 +75,14 @@ Persons := [
 Status := "deposited",
 
 ArchiveURL := 
-  "http://larmor.nuigalway.ie/~dane/nilmat/nilmat-1.2",
+  "http://www.maths.nuigalway.ie/~dane/nilmat/nilmat-1.0",
 README_URL := 
-  "http://larmor.nuigalway.ie/~dane/nilmat/README",
+  "http://www.maths.nuigalway.ie/~dane/nilmat/README",
 PackageInfoURL := 
-  "http://larmor.nuigalway.ie/~dane/nilmat/PackageInfo.g",
+  "http://www.maths.nuigalway.ie/~dane/nilmat/PackageInfo.g",
 ArchiveFormats := ".tar.gz",
 PackageWWWHome := 
-  "http://larmor.nuigalway.ie/~dane/nilmat",
+  "http://www.maths.nuigalway.ie/~dane/nilmat",
 
 AbstractHTML := 
   "The <span class=\"pkgname\">Nilmat</span> package contains methods for checking whether a finitely generated matrix group over a finite field or the field of rational numbers is nilpotent, methods for computing with such nilpotent matrix groups and methods for contructing important classes of such nilpotent matrix groups.",

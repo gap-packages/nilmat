@@ -533,10 +533,12 @@ end );
 ## finite field case GAP determines a permutation group and tests 
 ## nilpotency of that.
 ##
-InstallMethod( IsNilpotentGroup, true, [IsMatrixGroup], SUM_FLAGS,
+InstallMethod( IsNilpotentGroup, [IsFFEMatrixGroup], NICE_FLAGS, IsNilpotentMatGroup );
+
+InstallMethod( IsNilpotentGroup, [IsCyclotomicMatrixGroup], NICE_FLAGS,
 function(G)
-    local F;
-    F := FieldOfMatrixGroup(G);
-    if IsFinite(F) or F = Rationals then return IsNilpotentMatGroup(G); fi;
+    if IsRationalMatrixGroup(G) then
+        return IsNilpotentMatGroup(G);
+    fi;
     TryNextMethod();
 end );

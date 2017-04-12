@@ -48,12 +48,9 @@ InstallGlobalFunction( IsFiniteNilpotentMatGroup, function(G)
     return (Length(kern) = 0);
 end );
 
-InstallMethod( IsFinite, true, [IsMatrixGroup and IsNilpotentGroup], 0,
+InstallMethod( IsFinite, true, [IsCyclotomicMatrixGroup and IsNilpotentGroup], 0,
 function(G)
-    local F;
-    F := FieldOfMatrixGroup(G);
-    if IsFinite(F) then return true; fi;
-    if F = Rationals then return IsFiniteNilpotentMatGroup(G); fi;
+    if IsRationalMatrixGroup(G) then return IsFiniteNilpotentMatGroup(G); fi;
     TryNextMethod();
 end );
 
@@ -149,11 +146,13 @@ end;
 #F SizeOfNilpotentMatGroup( G ) . . . . . . . . . . . . . determine the order
 ##
 InstallGlobalFunction( SizeOfNilpotentMatGroup, function(G)
-   local F;
-   F := FieldOfMatrixGroup(G);
-   if IsFinite(F) then return SizeOfNilpotentMatGroupFF(G);fi;
-   if F = Rationals then return SizeOfNilpotentMatGroupRN(G);fi;
-   return fail;
+    if IsFFEMatrixGroup(G) then
+        return SizeOfNilpotentMatGroupFF(G);
+    fi;
+    if IsCyclotomicMatrixGroup(G) and IsRationalMatrixGroup(G) then
+        return SizeOfNilpotentMatGroupRN(G);
+    fi;
+    return fail;
 end );
 
 ##
@@ -162,10 +161,10 @@ end );
 ## subgroups.
 ##
 
-InstallMethod( Size, true, [IsMatrixGroup and IsNilpotentGroup], 0,
+InstallMethod( Size, true, [IsCyclotomicMatrixGroup and IsNilpotentGroup], 0,
 function(G)
-   if FieldOfMatrixGroup(G) = Rationals then 
-       return SizeOfNilpotentMatGroupRN(G); 
+   if IsRationalMatrixGroup(G) then
+       return SizeOfNilpotentMatGroupRN(G);
    fi;
    TryNextMethod();
 end);

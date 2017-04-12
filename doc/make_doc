@@ -19,7 +19,7 @@ dvips -D300 manual -o
 pdftex manual; pdftex manual
 
 mkdir -p ../htm echo "Creating HTML documentation"
-./convert.pl -t -c -n Nilmat . ../htm
+../../../etc/convert.pl -t -c -n Nilmat . ../htm
 
 #############################################################################
 ##

@@ -58,7 +58,7 @@ end;
 
 #############################################################################
 ##
-#F OddPrimitiveAbelianGens( n, po, l ) . . . . gens for odd prim. abel. grps 
+#F OddPrimitiveAbelianGens( n, po, l ) . . . . gens for odd prim. abel. grps
 ##
 OddPrimitiveAbelianGens := function (n, po, l)
     local qn, a, K2, K3;
@@ -77,27 +77,27 @@ end;
 ##
 SpecialMatrix := function(po,t)
     local z,i,o,j,x,y,g,n;
- 
+
     z := Z(po,t);
     o := z^0;
     n := po^t-1;
- 
+
     i := 1;
     x := z;
     y := z;
-   
+
     while  x^2 + y^2 <> -o  and  i <= n  do
         i := i+1;
         x := z^i;
         j := 1;
         y := z;
-      
+
         while  x^2 + y^2 <> -o  and j<= n  do
             j := j+1;
             y := z^j;
         od;
     od;
- 
+
     g := [[x,y],[y,-x]];
     return g;
 end;
@@ -121,7 +121,7 @@ NilPrimMatGroups := function(n, po, l)
     if po = 2 or n mod 2 = 1 or IsInt(n/4) or q mod 4 = 1 then return Pnq; fi;
 
     # consider abelian primitive groups of odd order in deg n/2
-    Cnq := OddPrimitiveAbelianGens(m, po, l); 
+    Cnq := OddPrimitiveAbelianGens(m, po, l);
     if Cnq = [] then return Pnq; fi;
     Cnq := List(Cnq, x -> KroneckerProduct(x, IdentityMat(2, GF(q))));
 
@@ -139,7 +139,7 @@ NilPrimMatGroups := function(n, po, l)
 
     # this is all in certain cases
     if po mod 8 = 3 then return Pnq; fi;
-      
+
     # extend list further
     for i in [1..(t-3)] do
         b := a^(2^i);

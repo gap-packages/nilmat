@@ -21,8 +21,8 @@
 ## Note that this function does not check if the given group G is nilpotent
 ## and it may return wrong results if it is not.
 ##
-## Note that the generic method to compute the Sylow system of nilpotent 
-## groups is not so bad. Hence the function below is only a small improvement 
+## Note that the generic method to compute the Sylow system of nilpotent
+## groups is not so bad. Hence the function below is only a small improvement
 ## that uses the results of the nilpotency test in a sensible form.
 ##
 InstallGlobalFunction( SylowSubgroupsOfNilpotentFFMatGroup, function(G)
@@ -41,8 +41,8 @@ InstallGlobalFunction( SylowSubgroupsOfNilpotentFFMatGroup, function(G)
     B := P[1];
     C := P[2];
 
-    # now G = U x C x B 
-    # U is a p-subgroup, C is abelian and 
+    # now G = U x C x B
+    # U is a p-subgroup, C is abelian and
     # Sylow subgroups of B are available unless B is abelian
 
     # get generators and relevant primes for C
@@ -50,7 +50,7 @@ InstallGlobalFunction( SylowSubgroupsOfNilpotentFFMatGroup, function(G)
     oC := Set(PrimeFactors(List(GeneratorsOfGroup(C), Order)));
 
     # get generators and relevant primes for B
-    if HasSylowSystem(B) then 
+    if HasSylowSystem(B) then
         sB := SylowSystem(B);
         oB := List(sB, PrimePGroup);
     else
@@ -58,11 +58,11 @@ InstallGlobalFunction( SylowSubgroupsOfNilpotentFFMatGroup, function(G)
         bB := GeneratorsOfGroup(B);
     fi;
 
-    # do a check 
-    if p in oB or p in oC then 
+    # do a check
+    if p in oB or p in oC then
         Error("something wrong with Sylow subgroups");
     fi;
-  
+
     # get relevant primes for G
     if ForAny( GeneratorsOfGroup(U), x -> x <> x^0 ) then
         o := Union( [p], oC, oB );
@@ -75,16 +75,16 @@ InstallGlobalFunction( SylowSubgroupsOfNilpotentFFMatGroup, function(G)
     for q in o do
 
         # the p-Sylow subgroup is U (unless it is trivial)
-        if q = p then 
+        if q = p then
             SetIsPGroup(U, true);
             SetPrimePGroup(U, q);
-            Add( syl, U ); 
+            Add( syl, U );
         else
 
             # otherwise join p-Sylow subgroups of C and B
             t := [];
             if q in oB then
-                if HasSylowSystem(B) then 
+                if HasSylowSystem(B) then
                     W := sB[Position(oB,q)];
                 else
                     W := SylowSubgroupOfNilpotentMatGroupFF( B, bB, q );
@@ -111,9 +111,9 @@ end );
 ## need high value, otherwise GAP chooses the method for solvable groups
 ## using a special pc sequence to compute the Sylow system.
 ##
-InstallMethod( SylowSystem, true, [IsMatrixGroup and IsNilpotentGroup], 
+InstallMethod( SylowSystem, true, [IsMatrixGroup and IsNilpotentGroup],
 SUM_FLAGS, function(G)
-    if IsFinite(FieldOfMatrixGroup(G)) then 
+    if IsFinite(FieldOfMatrixGroup(G)) then
         return SylowSubgroupsOfNilpotentFFMatGroup(G);
     fi;
     TryNextMethod();

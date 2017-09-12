@@ -5,10 +5,10 @@ DeclareInfoClass( "InfoNilMat" );
 ## Attributes and Properties
 ##
 DeclareAttribute( "JordanSplitting", IsGroup );
-DeclareAttribute( "PiPrimarySplitting", IsGroup ); 
+DeclareAttribute( "PiPrimarySplitting", IsGroup );
 DeclareProperty( "IsUnipotentMatGroup", IsGroup );
 
-## 
+##
 ## Global Functions
 ##
 DeclareGlobalFunction( "ClassLimit" );

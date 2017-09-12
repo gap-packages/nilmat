@@ -6,7 +6,7 @@
 ##
 
 ##
-## This file contains methods to check whether a given matrix group over 
+## This file contains methods to check whether a given matrix group over
 ## GF(q) or Q is nilpotent. The methods for groups over Q need Polenta. The
 ## group needs to be finitely generated.
 ##
@@ -34,7 +34,7 @@ PAndPrimePart := function( elm, q )
     b := Product(Filtered(f, x -> not x in q));
     g := Gcdex(a,b);
     return [elm^(g.coeff2*b), elm^(g.coeff1*a)];
-end; 
+end;
 
 IsCentralElement := function(H,a)
     local h;
@@ -99,7 +99,7 @@ OrbitStabGens := function(G, v)
     U!.index := Length(orb);
     return U;
 end;
-       
+
 MakeMatGroup := function(n, F, gens)
     local s, one;
     s := Filtered(gens, x -> x <> x^0);
@@ -219,7 +219,7 @@ end;
 #############################################################################
 ##
 #F AbelianNormalSeries(G, l) . . . . . . a normal series with abelian factors
-##  
+##
 ## The function returns a normal series with abelian factors of G. The group
 ## G has to be non-abelian and nilpotent (otherwise the function may return
 ## fail). The integer l is a limit to the nilpotency class of G.
@@ -471,7 +471,7 @@ IsNilpotentMatGroupRN := function(G, l)
     n := DimensionOfMatrixGroup(G);
     g := GeneratorsOfGroup(G);
     if Length(g) = 1 then return true; fi;
-   
+
     # first split by Jordan Decomposition
     d := List(g, JordanDecomposition);
     S := GroupByGenerators(List(d, x -> x[1]));
@@ -501,7 +501,7 @@ IsNilpotentMatGroupRN := function(G, l)
     # check that the kernel is central
     K := GroupByGenerators(kern);
     if not IsCentralSubgroup(S, K) then return false; fi;
-  
+
     # that's it
     return true;
 end;
@@ -533,7 +533,7 @@ end );
 
 ##
 ## need to install this method with high value, as otherwise for the
-## finite field case GAP determines a permutation group and tests 
+## finite field case GAP determines a permutation group and tests
 ## nilpotency of that.
 ##
 InstallMethod( IsNilpotentGroup, [IsFFEMatrixGroup], NICE_FLAGS, IsNilpotentMatGroup );

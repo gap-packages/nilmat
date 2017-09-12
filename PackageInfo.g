@@ -22,8 +22,8 @@ SetPackageInfo( rec(
 
 PackageName := "Nilmat",
 Subtitle := "Computing with nilpotent matrix groups",
-Version := "1.2",
-Date := "10/08/2007",
+Version := "1.3",
+Date := "12/09/2017",
 CommunicatedBy := "Derek Holt",
 AcceptDate := "09/08/2007",
 
@@ -72,13 +72,13 @@ Persons := [
     Institution   := "NUI Galway")
 ],
 
-Status := "deposited",
+Status := "accepted",
 
 PackageWWWHome := "http://www.maths.nuigalway.ie/~dane/nilmat",
 README_URL     := Concatenation( ~.PackageWWWHome, "/README" ),
 PackageInfoURL := Concatenation( ~.PackageWWWHome, "/PackageInfo.g" ),
 ArchiveURL     := Concatenation( ~.PackageWWWHome, "/nilmat-", ~.Version ),
-ArchiveFormats := ".tar.gz",
+ArchiveFormats := ".zip",
 
 AbstractHTML := 
   "The <span class=\"pkgname\">Nilmat</span> package contains methods for checking whether a finitely generated matrix group over a finite field or the field of rational numbers is nilpotent, methods for computing with such nilpotent matrix groups and methods for constructing important classes of such nilpotent matrix groups.",

@@ -81,7 +81,7 @@ ArchiveURL     := Concatenation( ~.PackageWWWHome, "/nilmat-", ~.Version ),
 ArchiveFormats := ".tar.gz",
 
 AbstractHTML := 
-  "The <span class=\"pkgname\">Nilmat</span> package contains methods for checking whether a finitely generated matrix group over a finite field or the field of rational numbers is nilpotent, methods for computing with such nilpotent matrix groups and methods for contructing important classes of such nilpotent matrix groups.",
+  "The <span class=\"pkgname\">Nilmat</span> package contains methods for checking whether a finitely generated matrix group over a finite field or the field of rational numbers is nilpotent, methods for computing with such nilpotent matrix groups and methods for constructing important classes of such nilpotent matrix groups.",
                
 PackageDoc := rec(
   BookName  := "Nilmat",

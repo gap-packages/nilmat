@@ -267,6 +267,8 @@ InstallMethod( IsUnipotentMatGroup, true, [IsMatrixGroup], 0,
 function(G)
     local F, n, g, V, U;
 
+    if HasIsTrivial(G) and IsTrivial(G) then return true; fi;
+
     F := FieldOfMatrixGroup(G);
     n := DimensionOfMatrixGroup(G);
     g := List(GeneratorsOfGroup(G), x -> x - x^0);

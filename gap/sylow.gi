@@ -28,6 +28,10 @@
 InstallGlobalFunction( SylowSubgroupsOfNilpotentFFMatGroup, function(G)
     local F, p, n, l, J, S, U, P, B, C, W, bC, oC, bB, oB, sB, o, syl, q, t;
 
+    # check a trivial case
+    if ForAll(GeneratorsOfGroup(G), x -> x = One(G)) then return []; fi;
+
+    # catch arguments
     F := FieldOfMatrixGroup(G);
     p := Characteristic(F);
     n := DimensionOfMatrixGroup(G);

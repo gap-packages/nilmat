@@ -27,6 +27,7 @@ InstallGlobalFunction( IsFiniteNilpotentMatGroup, function(G)
     # the trivial case
     F := FieldOfMatrixGroup(G);
     if IsFinite(F) then return true; fi;
+    if ForAll(GeneratorsOfGroup(G), x -> x = One(G)) then return true; fi;
 
     # set up
     g := GeneratorsOfGroup(G);
@@ -100,7 +101,9 @@ SizeOfNilpotentMatGroupFF := function(G)
     local J, S, U, P, B, C, syl;
 
     # catch a trivial case
-    if Length(GeneratorsOfGroup(G)) = 1 then
+    if ForAll(GeneratorsOfGroup(G), x -> x = One(G)) then
+        return 1;
+    elif Length(Set(GeneratorsOfGroup(G))) = 1 then
         return Order(GeneratorsOfGroup(G)[1]);
     fi;
 

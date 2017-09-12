@@ -74,15 +74,11 @@ Persons := [
 
 Status := "deposited",
 
-ArchiveURL := 
-  "http://www.maths.nuigalway.ie/~dane/nilmat/nilmat-1.0",
-README_URL := 
-  "http://www.maths.nuigalway.ie/~dane/nilmat/README",
-PackageInfoURL := 
-  "http://www.maths.nuigalway.ie/~dane/nilmat/PackageInfo.g",
+PackageWWWHome := "http://www.maths.nuigalway.ie/~dane/nilmat",
+README_URL     := Concatenation( ~.PackageWWWHome, "/README" ),
+PackageInfoURL := Concatenation( ~.PackageWWWHome, "/PackageInfo.g" ),
+ArchiveURL     := Concatenation( ~.PackageWWWHome, "/nilmat-", ~.Version ),
 ArchiveFormats := ".tar.gz",
-PackageWWWHome := 
-  "http://www.maths.nuigalway.ie/~dane/nilmat",
 
 AbstractHTML := 
   "The <span class=\"pkgname\">Nilmat</span> package contains methods for checking whether a finitely generated matrix group over a finite field or the field of rational numbers is nilpotent, methods for computing with such nilpotent matrix groups and methods for contructing important classes of such nilpotent matrix groups.",

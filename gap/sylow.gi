@@ -115,10 +115,5 @@ end );
 ## need high value, otherwise GAP chooses the method for solvable groups
 ## using a special pc sequence to compute the Sylow system.
 ##
-InstallMethod( SylowSystem, true, [IsMatrixGroup and IsNilpotentGroup],
-SUM_FLAGS, function(G)
-    if IsFinite(FieldOfMatrixGroup(G)) then
-        return SylowSubgroupsOfNilpotentFFMatGroup(G);
-    fi;
-    TryNextMethod();
-end );
+InstallMethod( SylowSystem, [IsFFEMatrixGroup and IsNilpotentGroup], NICE_FLAGS,
+    SylowSubgroupsOfNilpotentFFMatGroup );

@@ -104,22 +104,23 @@ SizeOfNilpotentMatGroupFF := function(G)
         return Order(GeneratorsOfGroup(G)[1]);
     fi;
 
-   # get available info from nilpotency testing
-   J := JordanSplitting(G);
-   S := J[1];
-   U := J[2];
+    # get available info from nilpotency testing
+    J := JordanSplitting(G);
+    S := J[1];
+    U := J[2];
 
-   P := PiPrimarySplitting(S);
-   B := P[1];
-   C := P[2];
+    P := PiPrimarySplitting(S);
+    B := P[1];
+    C := P[2];
 
-   # now G = B x C x U
-   if IsAbelian(B) then
-       return Size(U) * Size(C) * Size(B);
-   else       # in this case a Sylow system for B is known from nilpotency testing
-       syl := SylowSubgroupsOfNilpotentFFMatGroup(B);
-       return Size(U) * Size(C) * Product(List(syl, SizeByKnownClass));
-   fi;
+    # now G = B x C x U
+    if IsAbelian(B) then
+        return Size(U) * Size(C) * Size(B);
+    else
+        # in this case a Sylow system for B is known from nilpotency testing
+        syl := SylowSubgroupsOfNilpotentFFMatGroup(B);
+        return Size(U) * Size(C) * Product(List(syl, SizeByKnownClass));
+    fi;
 end;
 
 #############################################################################

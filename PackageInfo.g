@@ -24,8 +24,8 @@ PackageName := "Nilmat",
 Subtitle := "Computing with nilpotent matrix groups",
 Version := "1.3",
 Date := "12/09/2017",
-CommunicatedBy := "Derek Holt",
-AcceptDate := "09/08/2007",
+CommunicatedBy := "Derek Holt (Warwick)",
+AcceptDate := "08/2007",
 
 Persons := [
   rec( 

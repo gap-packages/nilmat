@@ -49,7 +49,7 @@ InstallGlobalFunction( IsFiniteNilpotentMatGroup, function(G)
     return (Length(kern) = 0);
 end );
 
-InstallMethod( IsFinite, true, [IsCyclotomicMatrixGroup and IsNilpotentGroup], 0,
+InstallMethod( IsFinite, [IsCyclotomicMatrixGroup and IsNilpotentGroup],
 function(G)
     if IsRationalMatrixGroup(G) then return IsFiniteNilpotentMatGroup(G); fi;
     TryNextMethod();

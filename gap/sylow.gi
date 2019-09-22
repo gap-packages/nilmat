@@ -13,7 +13,7 @@
 
 #############################################################################
 ##
-#F SylowSubgroupsOfNilpotentMatGroupFF(G) . . . . . determine Sylow subgroups
+#F SylowSubgroupsOfNilpotentFFMatGroup(G) . . . . . determine Sylow subgroups
 ##
 ## This function takes a nilpotent matrix group G over GF(q) and returns
 ## its Sylow system.

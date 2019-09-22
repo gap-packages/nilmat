@@ -1,3 +1,6 @@
+[![Travis Build Status](https://travis-ci.com/gap-packages/nilmat.svg?branch=master)](https://travis-ci.com/gap-packages/nilmat)
+[![Code Coverage](https://codecov.io/github/gap-packages/nilmat/coverage.svg?branch=master&token=)](https://codecov.io/gh/gap-packages/nilmat)
+
 # The Nilmat package
 
 This is the README file for the GAP package "Nilmat".

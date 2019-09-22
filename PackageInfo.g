@@ -47,7 +47,7 @@ Persons := [
     IsAuthor      := true,
     IsMaintainer  := true,
     Email         := "beick@tu-bs.de",
-    WWWHome       := "http://www.tu-bs.de/~beick",
+    WWWHome       := "http://www.iaa.tu-bs.de/beick/",
     PostalAddress := Concatenation( [
                        "Institut Computational Mathematics\n",
                        "TU Braunschweig\n",

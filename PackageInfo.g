@@ -24,8 +24,6 @@ PackageName := "Nilmat",
 Subtitle := "Computing with nilpotent matrix groups",
 Version := "1.3dev",
 Date := "12/09/2017",
-CommunicatedBy := "Derek Holt (Warwick)",
-AcceptDate := "08/2007",
 
 Persons := [
   rec( 
@@ -73,12 +71,21 @@ Persons := [
 ],
 
 Status := "accepted",
+CommunicatedBy := "Derek Holt (Warwick)",
+AcceptDate := "08/2007",
 
-PackageWWWHome := "http://www.maths.nuigalway.ie/~dane/nilmat",
-README_URL     := Concatenation( ~.PackageWWWHome, "/README" ),
-PackageInfoURL := Concatenation( ~.PackageWWWHome, "/PackageInfo.g" ),
-ArchiveURL     := Concatenation( ~.PackageWWWHome, "/nilmat-", ~.Version ),
-ArchiveFormats := ".zip",
+SourceRepository := rec(
+    Type := "git",
+    URL := "https://github.com/gap-packages/nilmat",
+),
+IssueTrackerURL := Concatenation( ~.SourceRepository.URL, "/issues" ),
+PackageWWWHome  := "https://gap-packages.github.io/nilmat",
+README_URL      := Concatenation( ~.PackageWWWHome, "/README.md" ),
+PackageInfoURL  := Concatenation( ~.PackageWWWHome, "/PackageInfo.g" ),
+ArchiveURL      := Concatenation( ~.SourceRepository.URL,
+                                 "/releases/download/v", ~.Version,
+                                 "/nilmat-", ~.Version ),
+ArchiveFormats := ".tar.gz .tar.bz2",
 
 AbstractHTML := 
   "The <span class=\"pkgname\">Nilmat</span> package contains methods for checking whether a finitely generated matrix group over a finite field or the field of rational numbers is nilpotent, methods for computing with such nilpotent matrix groups and methods for constructing important classes of such nilpotent matrix groups.",

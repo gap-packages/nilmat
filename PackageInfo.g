@@ -111,6 +111,7 @@ Dependencies := rec(
 AvailabilityTest := ReturnTrue,
 BannerString := Concatenation("Loading Nilmat ", String( ~.Version ), "...\n"),
 Autoload := false,
-Keywords := ["nilpotent groups", "matrix groups"]
+TestFile := "tst/testall.g",
+Keywords := ["nilpotent groups", "matrix groups"],
 
 ));

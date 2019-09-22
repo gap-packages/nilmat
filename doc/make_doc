@@ -1,22 +1,20 @@
 #!/bin/sh
+set -e
 
 echo "TeXing documentation"
-tex manual
+# TeX the manual
+pdftex manual
+# ... and build its bibliography
 bibtex manual
-tex manual
-
-# build the index
+# # TeX the manual again to incorporate the ToC 
+pdftex manual
+# ... and build the index
 ../../../doc/manualindex manual
 # Finally TeX the manual again to get cross-references right
-tex manual
+pdftex manual
 
-# Create Postscript version
-dvips -D300 manual -o
-
-# Create PDF version
-pdftex manual; pdftex manual
-
-# Create HTML version
-mkdir -p ../htm
+# The HTML version of the manual
+rm -rf ../htm
+mkdir ../htm
 echo "Creating HTML documentation"
-../../../etc/convert.pl -t -c -n Nilmat . ../htm
+../../../etc/convert.pl -i -u -c -n Nilmat . ../htm

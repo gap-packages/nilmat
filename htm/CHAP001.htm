@@ -1,0 +1,58 @@
+<html><head><title>[Nilmat] 1 Introduction</title></head>
+<body text="#000000" bgcolor="#ffffff">
+[<a href = "chapters.htm">Up</a>] [<a href ="CHAP002.htm">Next</a>] [<a href = "theindex.htm">Index</a>]
+<h1>1 Introduction</h1><p>
+<p>
+<a name = "I0"></a>
+
+This package is for computing with nilpotent matrix groups over a
+field <b>F</b>, where <b>F</b> is a finite field <i>GF</i>(<i>q</i>) or the rational
+number field <b>Q</b>.
+<p>
+<font face="Gill Sans,Helvetica,Arial">Nilmat</font> contains an implementation of algorithms
+developed over the past few years, available in theoretical form
+in the papers <a href="biblio.htm#DF04,DF05b,DF06,DF07"><cite>DF04,DF05b,DF06,DF07</cite></a>. The theory of nilpotent
+matrix groups is an essential part of linear group theory. Many
+structural and classification results for nilpotent linear groups
+are known (see e.g. <a href="biblio.htm#Sup76,Weh73"><cite>Sup76,Weh73</cite></a>), and specialized methods
+for handling these groups have been developed. The computational
+advantages of nilpotent linear groups have been addressed in
+<a href="biblio.htm#DF05a"><cite>DF05a</cite></a>. For a full description of most of the algorithms of
+this package, further general information, and historical remarks,
+see <a href="biblio.htm#DF06,DF07"><cite>DF06,DF07</cite></a>.
+<p>
+One purpose of <font face="Gill Sans,Helvetica,Arial">Nilmat</font> is testing nilpotency of a
+subgroup <i>G</i> of <i>GL</i>(<i>n</i>,<b>F</b>). If <i>G</i> &lt;  <i>GL</i>(<i>n</i>,<b>Q</b>) is found to be
+nilpotent then the package provides a function for deciding
+whether <i>G</i> is finite. If <i>G</i> &lt;  <i>GL</i>(<i>n</i>,<i>q</i>) is found to be nilpotent
+then the package provides a function that returns the Sylow
+subgroups of <i>G</i>. Additional functions allow one to test whether a
+nilpotent subgroup <i>G</i> of <i>GL</i>(<i>n</i>,<b>F</b>) is completely reducible or
+unipotent, and to compute the order of <i>G</i> if it is finite.
+<p>
+Another feature of <font face="Gill Sans,Helvetica,Arial">Nilmat</font> is a library of nilpotent
+primitive matrix groups. Specifically, for each integer <i>n</i> &gt; 1 and
+prime power <i>q</i>, this library returns a complete and irredundant
+list of <i>GL</i>(<i>n</i>,<i>q</i>)-conjugacy class representatives of the
+nilpotent primitive subgroups of <i>GL</i>(<i>n</i>,<i>q</i>).
+<p>
+The problem of constructing nilpotent matrix groups is interesting
+in its own right. We have included in the package functions
+concerned with this problem. For example, one such function
+constructs maximal absolutely irreducible nilpotent subgroups of
+<i>GL</i>(<i>n</i>,<i>q</i>).
+<p>
+Related research on solvable and polycyclic matrix groups was
+carried out by Bj&ouml;rn Assmann and Bettina Eick in
+<a href="biblio.htm#AE05,AE07"><cite>AE05,AE07</cite></a>. Most of the algorithms in <a href="biblio.htm#AE05"><cite>AE05</cite></a> were
+implemented in the <font face="Gill Sans,Helvetica,Arial">GAP</font> package <font face="Gill Sans,Helvetica,Arial">Polenta</font>, on which
+<font face="Gill Sans,Helvetica,Arial">Nilmat</font> partially relies.
+<p>
+This work has emanated from research conducted with the financial
+support of Science Foundation Ireland and the German Academic
+Exchange Service (DAAD).
+<p>
+[<a href = "chapters.htm">Up</a>] [<a href ="CHAP002.htm">Next</a>] [<a href = "theindex.htm">Index</a>]
+<P>
+<address>Nilmat manual<br>September 2019
+</address></body></html>

@@ -22,10 +22,9 @@ SetPackageInfo( rec(
 
 PackageName := "Nilmat",
 Subtitle := "Computing with nilpotent matrix groups",
-Version := "1.3",
-Date := "12/09/2017",
-CommunicatedBy := "Derek Holt (Warwick)",
-AcceptDate := "08/2007",
+Version := "1.4",
+Date := "09/02/2020", # dd/mm/yyyy format
+License := "GPL-2.0-or-later",
 
 Persons := [
   rec( 
@@ -48,12 +47,13 @@ Persons := [
     IsAuthor      := true,
     IsMaintainer  := true,
     Email         := "beick@tu-bs.de",
-    WWWHome       := "http://www.tu-bs.de/~beick",
+    WWWHome       := "http://www.iaa.tu-bs.de/beick/",
     PostalAddress := Concatenation( [
-                       "Institut Computational Mathematics\n",
-                       "TU Braunschweig\n",
-                       "38106 Braunschweig\n",
-                       "Germany" ] ),
+               "Institut Analysis und Algebra\n",
+               "TU Braunschweig\n",
+               "Universitätsplatz 2\n",
+               "D-38106 Braunschweig\n",
+               "Germany" ] ),
     Place         := "Braunschweig",
     Institution   := "TU Braunschweig"),
   rec( 
@@ -73,12 +73,21 @@ Persons := [
 ],
 
 Status := "accepted",
+CommunicatedBy := "Derek Holt (Warwick)",
+AcceptDate := "08/2007",
 
-PackageWWWHome := "http://www.maths.nuigalway.ie/~dane/nilmat",
-README_URL     := Concatenation( ~.PackageWWWHome, "/README" ),
-PackageInfoURL := Concatenation( ~.PackageWWWHome, "/PackageInfo.g" ),
-ArchiveURL     := Concatenation( ~.PackageWWWHome, "/nilmat-", ~.Version ),
-ArchiveFormats := ".zip",
+SourceRepository := rec(
+    Type := "git",
+    URL := "https://github.com/gap-packages/nilmat",
+),
+IssueTrackerURL := Concatenation( ~.SourceRepository.URL, "/issues" ),
+PackageWWWHome  := "https://gap-packages.github.io/nilmat",
+README_URL      := Concatenation( ~.PackageWWWHome, "/README.md" ),
+PackageInfoURL  := Concatenation( ~.PackageWWWHome, "/PackageInfo.g" ),
+ArchiveURL      := Concatenation( ~.SourceRepository.URL,
+                                 "/releases/download/v", ~.Version,
+                                 "/nilmat-", ~.Version ),
+ArchiveFormats := ".tar.gz .tar.bz2",
 
 AbstractHTML := 
   "The <span class=\"pkgname\">Nilmat</span> package contains methods for checking whether a finitely generated matrix group over a finite field or the field of rational numbers is nilpotent, methods for computing with such nilpotent matrix groups and methods for constructing important classes of such nilpotent matrix groups.",
@@ -94,7 +103,7 @@ PackageDoc := rec(
 ),
 
 Dependencies := rec(
-  GAP := ">=4.4.12",
+  GAP := ">=4.8",
   NeededOtherPackages := [["Polenta", ">=1.0"]],
   SuggestedOtherPackages := [],
   ExternalConditions := []
@@ -103,6 +112,7 @@ Dependencies := rec(
 AvailabilityTest := ReturnTrue,
 BannerString := Concatenation("Loading Nilmat ", String( ~.Version ), "...\n"),
 Autoload := false,
-Keywords := ["nilpotent groups", "matrix groups"]
+TestFile := "tst/testall.g",
+Keywords := ["nilpotent groups", "matrix groups"],
 
 ));

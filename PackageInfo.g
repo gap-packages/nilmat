@@ -23,7 +23,7 @@ SetPackageInfo( rec(
 PackageName := "Nilmat",
 Subtitle := "Computing with nilpotent matrix groups",
 Version := "1.4",
-Date := "11/10/2019", # dd/mm/yyyy format
+Date := "09/02/2020", # dd/mm/yyyy format
 License := "GPL-2.0-or-later",
 
 Persons := [

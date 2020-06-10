@@ -48,9 +48,11 @@ false
 #
 gap> g9 := ReducibleNilpotentMatGroupFF(2, 4*9,5,2);
 <matrix group with 21 generators>
-gap> SylowSubgroupsOfNilpotentFFMatGroup(g9);
-[ <matrix group with 5 generators>, <matrix group with 6 generators>, 
-  <matrix group with 1 generators> ]
+gap> x := SylowSubgroupsOfNilpotentFFMatGroup(g9);;
+gap> ForAll(x, IsMatrixGroup);
+true
+gap> List(x, g -> Length(GeneratorsOfGroup(g)));
+[ 5, 6, 1 ]
 
 # Using library functions
 #

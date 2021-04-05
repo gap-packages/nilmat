@@ -1,4 +1,4 @@
-[![Travis Build Status](https://travis-ci.com/gap-packages/nilmat.svg?branch=master)](https://travis-ci.com/gap-packages/nilmat)
+[![Build Status](https://github.com/gap-packages/nilmat/workflows/CI/badge.svg?branch=master)](https://github.com/gap-packages/nilmat/actions?query=workflow%3ACI+branch%3Amaster)
 [![Code Coverage](https://codecov.io/github/gap-packages/nilmat/coverage.svg?branch=master&token=)](https://codecov.io/gh/gap-packages/nilmat)
 
 # The Nilmat package

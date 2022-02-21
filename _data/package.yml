@@ -1,6 +1,6 @@
 name: Nilmat
-version: "1.4"
-date: 2020-02-09
+version: "1.4.1"
+date: 2022-02-21
 description: |
     Computing with nilpotent matrix groups
 
@@ -33,9 +33,9 @@ packageinfo: https://gap-packages.github.io/nilmat/PackageInfo.g
 
 downloads:
     - name: .tar.gz
-      url: https://github.com/gap-packages/nilmat/releases/download/v1.4/nilmat-1.4.tar.gz
+      url: https://github.com/gap-packages/nilmat/releases/download/v1.4.1/nilmat-1.4.1.tar.gz
     - name: .tar.bz2
-      url: https://github.com/gap-packages/nilmat/releases/download/v1.4/nilmat-1.4.tar.bz2
+      url: https://github.com/gap-packages/nilmat/releases/download/v1.4.1/nilmat-1.4.1.tar.bz2
 
 abstract: |
     The <span class="pkgname">Nilmat</span> package contains methods for checking whether a finitely generated matrix group over a finite field or the field of rational numbers is nilpotent, methods for computing with such nilpotent matrix groups and methods for constructing important classes of such nilpotent matrix groups.
@@ -47,27 +47,27 @@ keywords: |
     nilpotent groups, matrix groups.
 citeas: |
     <p class='BibEntry'>
-    [<span class='BibKey'>DEF20</span>]   <b class='BibAuthor'>Detinko, A., Eick, B. and Flannery, D.</b>,
+    [<span class='BibKey'>DEF22</span>]   <b class='BibAuthor'>Detinko, A., Eick, B. and Flannery, D.</b>,
      <i class='BibTitle'>Nilmat, Computing with nilpotent matrix groups,
-             Version 1.4</i>
-     (<span class='BibYear'>2020</span>)<br />
+             Version 1.4.1</i>
+     (<span class='BibYear'>2022</span>)<br />
     (<span class='BibNote'>Refereed GAP package</span>),
     <span class='BibHowpublished'><a href="https://gap-packages.github.io/nilmat">https://gap-packages.github.io/nilmat</a></span>.
     </p>
     
 
 bibtex: |
-    @misc{ Nilmat1.4,
+    @misc{ Nilmat1.4.1,
       author =           {Detinko, A. and Eick, B. and Flannery, D.},
       title =            {{Nilmat},  Computing  with  nilpotent  matrix  groups,
-                          {V}ersion 1.4},
+                          {V}ersion 1.4.1},
       month =            {Feb},
-      year =             {2020},
+      year =             {2022},
       note =             {Refereed GAP package},
       howpublished =     {\href          {https://gap-packages.github.io/nilmat}
                           {\texttt{https://gap-packages.github.io/}\discretionary
                           {}{}{}\texttt{nilmat}}},
       keywords =         {nilpotent groups; matrix groups},
-      printedkey =       {DEF20}
+      printedkey =       {DEF22}
     }
 

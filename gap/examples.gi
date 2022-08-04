@@ -53,7 +53,7 @@ end );
 ## otherwise l=1 is taken. The constructed group is a Kronecker product of a
 ## subgroup of UT(m,Q) and MonomialNilpotent(k).
 ##
-ReducibleNilpotentMatGroupRN := function(arg)
+BindGlobal( "ReducibleNilpotentMatGroupRN", function(arg)
    local m, k, e, L, M, i;
 
    # catch arguments
@@ -80,7 +80,7 @@ ReducibleNilpotentMatGroupRN := function(arg)
 
    # Kronecker products
    return Group(KroneckerProductLists(L,M));
-end;
+end );
 
 #############################################################################
 ##
@@ -94,7 +94,7 @@ end;
 ## NilpotentMaxAbsIrreducible(k,po,l); it is supposed that (k,po,l) are
 ## such that the latter exists.
 ##
-ReducibleNilpotentMatGroupFF := function(m,k,po,l)
+BindGlobal( "ReducibleNilpotentMatGroupFF", function(m,k,po,l)
    local U, q, w, e, L, i;
 
    U := MaximalAbsolutelyIrreducibleNilpotentMatGroup(k,po,l);
@@ -113,7 +113,7 @@ ReducibleNilpotentMatGroupFF := function(m,k,po,l)
    od;
 
    return Group(KroneckerProductLists(L,GeneratorsOfGroup(U)));
-end;
+end );
 
 #############################################################################
 ##

@@ -14,20 +14,20 @@
 ##
 #F SingerCycle( n, po, l ) . . . . . . . . . . . . a Singer cycle in GL(n,po)
 ##
-SingerCycle := function(n,po,l)
+BindGlobal( "SingerCycle", function(n,po,l)
     local F, F1, a, B;
     F := GF(po^l);
     F1 := GF(F, n);
     a := PrimitiveRoot(F1);
     B := Basis(F1);
     return List(BasisVectors(B), x -> Coefficients(B, x*a));
-end;
+end );
 
 #############################################################################
 ##
 #F OrdersPAG( n, po, l ) . . . . . . . . . . orders of primitive abelian grps
 ##
-OrdersPAG := function(n, po, l)
+BindGlobal( "OrdersPAG", function(n, po, l)
     local q, qn, l1, l2, K1, K2, y, d;
     q := po^l;
     qn := q^n - 1;
@@ -42,32 +42,32 @@ OrdersPAG := function(n, po, l)
         fi;
     od;
     return K2;
-end;
+end );
 
 #############################################################################
 ##
 #F PrimitiveAbelianGens( n, po, l ) . . . . . gens for primitive abelian grps
 ##
-PrimitiveAbelianGens := function (n, po, l)
+BindGlobal( "PrimitiveAbelianGens", function (n, po, l)
     local qn, K2, a, Anq;
     qn := po^(l*n) - 1;
     K2 := OrdersPAG(n, po, l);
     a := SingerCycle(n, po, l);
     return List(K2, x -> a^(qn/x));
-end;
+end );
 
 #############################################################################
 ##
 #F OddPrimitiveAbelianGens( n, po, l ) . . . . gens for odd prim. abel. grps
 ##
-OddPrimitiveAbelianGens := function (n, po, l)
+BindGlobal( "OddPrimitiveAbelianGens", function (n, po, l)
     local qn, a, K2, K3;
     qn := po^(l*n) - 1;
     K2 := OrdersPAG(n, po, l);
     K3 := Filtered(K2, x -> x mod 2 = 1);
     a := SingerCycle(n, po, l);
     return List(K3, x -> a^(qn/x));
-end;
+end );
 
 #############################################################################
 ##
@@ -75,7 +75,7 @@ end;
 ##
 ## Construct a matrix g = [[x,y],[y,-x]] with x^2+y^2 = -1.
 ##
-SpecialMatrix := function(po,t)
+BindGlobal( "SpecialMatrix", function(po,t)
     local z,i,o,j,x,y,g,n;
 
     z := Z(po,t);
@@ -100,7 +100,7 @@ SpecialMatrix := function(po,t)
 
     g := [[x,y],[y,-x]];
     return g;
-end;
+end );
 
 ############################################################################
 ##
@@ -109,7 +109,7 @@ end;
 ## Returns a complete and irredundant list of conjugacy class representatives
 ## of the nilpotent primitive subgroups of GL(n,qo^l).
 ##
-NilPrimMatGroups := function(n, po, l)
+BindGlobal( "NilPrimMatGroups", function(n, po, l)
     local q, m, Pnq, Cnq, t, e, d, s, a, b, i;
 
     # set up
@@ -148,7 +148,7 @@ NilPrimMatGroups := function(n, po, l)
     od;
 
     return Pnq;
-end;
+end );
 
 InstallGlobalFunction( SizesOfNilpotentPrimitiveMatGroups, function(n, po, l)
     local q, Anq, Pnq, m, i, Cnq, t, N1nq, N2nq, L1, N3nq;

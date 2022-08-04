@@ -15,18 +15,18 @@
 ##
 ## Some helpers
 ##
-PLength := function(a,p)
+BindGlobal( "PLength", function(a,p)
     return Length(Filtered(Factors(a), x -> x = p));
-end;
+end );
 
-PrimeFactors := function(list)
+BindGlobal( "PrimeFactors", function(list)
     local prm;
     prm := Flat(List(list, Factors));
     prm := Set(prm);
     return Filtered(prm, x -> x <> 1);
-end;
+end );
 
-PAndPrimePart := function( elm, q )
+BindGlobal( "PAndPrimePart", function( elm, q )
     local o, f, a, b, g;
     o := Order(elm);
     f := Factors(o);
@@ -34,17 +34,17 @@ PAndPrimePart := function( elm, q )
     b := Product(Filtered(f, x -> not x in q));
     g := Gcdex(a,b);
     return [elm^(g.coeff2*b), elm^(g.coeff1*a)];
-end;
+end );
 
-IsCentralElement := function(H,a)
+BindGlobal( "IsCentralElement", function(H,a)
     local h;
     for h in GeneratorsOfGroup(H) do
         if h*a <> a*h then return false; fi;
     od;
     return true;
-end;
+end );
 
-IsCentralSubgroup := function(H,U)
+BindGlobal( "IsCentralSubgroup", function(H,U)
     local h, a;
     for h in GeneratorsOfGroup(H) do
         for a in GeneratorsOfGroup(U) do
@@ -52,9 +52,9 @@ IsCentralSubgroup := function(H,U)
         od;
     od;
     return true;
-end;
+end );
 
-GroupsCommute := function(S,U)
+BindGlobal( "GroupsCommute", function(S,U)
     local s, u, a, b;
     s := GeneratorsOfGroup(S);
     u := GeneratorsOfGroup(U);
@@ -64,9 +64,9 @@ GroupsCommute := function(S,U)
         od;
     od;
     return true;
-end;
+end );
 
-OrbitStabGens := function(G, v)
+BindGlobal( "OrbitStabGens", function(G, v)
     local g, h, l, orb, trs, stb, c, i, w, j, U, s;
 
     # set up
@@ -98,16 +98,16 @@ OrbitStabGens := function(G, v)
     U := GroupByGenerators(stb);
     U!.index := Length(orb);
     return U;
-end;
+end );
 
-MakeMatGroup := function(n, F, gens)
+BindGlobal( "MakeMatGroup", function(n, F, gens)
     local s, one;
     s := Filtered(gens, x -> x <> x^0);
     s := Set(s);
     s := List(s, x -> ImmutableMatrix(F, x));
     one := IdentityMat(n, F);
     return GroupByGenerators(s, one);
-end;
+end );
 
 #############################################################################
 ##
@@ -169,7 +169,7 @@ end );
 ## fail otherwise). The integer l is an upper bound to the nilpotency class
 ## of H.
 ##
-SecondCentralElement := function(G, H, l)
+BindGlobal( "SecondCentralElement", function(G, H, l)
     local h, g, a, b, i, c;
 
     # find initial element and check that H is non-abelian
@@ -192,7 +192,7 @@ SecondCentralElement := function(G, H, l)
         fi;
     od;
     return a;
-end;
+end );
 
 #############################################################################
 ##
@@ -204,7 +204,7 @@ end;
 ##
 ## Note: This function is not currently used.
 ##
-NonCentralAbelian := function(H,a)
+BindGlobal( "NonCentralAbelian", function(H,a)
     local h, b, c;
     h := GeneratorsOfGroup(H);
     for b in h do
@@ -214,7 +214,7 @@ NonCentralAbelian := function(H,a)
         fi;
     od;
     return fail;
-end;
+end );
 
 #############################################################################
 ##
@@ -352,7 +352,7 @@ end );
 ## The function returns a Sylow p-subgroup of G where G is a nilpotent matrix
 ## group over GF(q). The list g has to be a polycyclic sequence for G.
 ##
-SylowSubgroupOfNilpotentMatGroupFF := function(G, g, p)
+BindGlobal( "SylowSubgroupOfNilpotentMatGroupFF", function(G, g, p)
     local F, n, s, U;
     F := FieldOfMatrixGroup(G);
     n := DimensionOfMatrixGroup(G);
@@ -361,7 +361,7 @@ SylowSubgroupOfNilpotentMatGroupFF := function(G, g, p)
     SetIsPGroup(U, true);
     SetPrimePGroup(U, p);
     return U;
-end;
+end );
 
 #############################################################################
 ##
@@ -370,14 +370,14 @@ end;
 ## The function returns a polycyclic sequence for G using the abelian normal
 ## series s of G.
 ##
-PcGensBySeries := function(G, s)
+BindGlobal( "PcGensBySeries", function(G, s)
     local b, i;
     b := ShallowCopy(GeneratorsOfGroup(s[Length(s)]));
     for i in Reversed([1..Length(s)-1]) do
         Append(b, Filtered(GeneratorsOfGroup(s[i]), x -> not (x in b)));
     od;
     return b;
-end;
+end );
 
 #############################################################################
 ##
@@ -387,7 +387,7 @@ end;
 ## group G is a subgroup of GL(n,F), where F is a finite field, and the
 ## integer l is an upper bound to the nilpotency class of G.
 ##
-IsNilpotentMatGroupFF := function(G, l)
+BindGlobal( "IsNilpotentMatGroupFF", function(G, l)
     local p, n, J, S, U, P, B, C, s, o, r, b, syl, q, W, V;
 
     Info( InfoNilMat, 1, "start testing nilpotency ");
@@ -457,7 +457,7 @@ IsNilpotentMatGroupFF := function(G, l)
 
     SetSylowSystem(B, syl);
     return true;
-end;
+end );
 
 #############################################################################
 ##
@@ -467,7 +467,7 @@ end;
 ## group G is a subgroup of GL(n,Q) and the integer l is an upper bound to
 ## the nilpotency class of G.
 ##
-IsNilpotentMatGroupRN := function(G, l)
+BindGlobal( "IsNilpotentMatGroupRN", function(G, l)
     local n, g, d, S, U, s, p, t, pcgs, kern, K;
 
     n := DimensionOfMatrixGroup(G);
@@ -506,7 +506,7 @@ IsNilpotentMatGroupRN := function(G, l)
 
     # that's it
     return true;
-end;
+end );
 
 #############################################################################
 ##

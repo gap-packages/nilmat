@@ -18,7 +18,7 @@
 ## of GL(p^a, F) isomorphic to a Sylow p-subgroup of S_(p^a). If 2 arguments
 ## are given, then F = Q is used, otherwise F = GF(po^t).
 ##
-MonomialSylow := function(arg)
+BindGlobal( "MonomialSylow", function(arg)
    local s,g,p,a;
    p := arg[1];
    a := arg[2];
@@ -29,7 +29,7 @@ MonomialSylow := function(arg)
    else
        return List(g, x -> PermutationMat(x,p^a,GF(arg[3],arg[4])));
    fi;
-end;
+end );
 
 #############################################################################
 ##
@@ -38,13 +38,13 @@ end;
 ## For a given element m of a field and a prime p construct a generator of
 ## the Sylow p-subgroup of <m>; if p does not divide |<m>| returns 1.
 ##
-CyclicSylow := function(m,p)
+BindGlobal( "CyclicSylow", function(m,p)
    local o, t, o1;
    o := Order(m);
    t := PLength(o,p);    #equals 0 if p does not divide o
    o1 := o/(p^t);
    return m^o1;
-end;
+end );
 
 #############################################################################
 ##
@@ -59,7 +59,7 @@ end;
 ## via a regular representation, i.e. an element i of order 4 should be
 ## represented by the matrix [[0,1],[-1,0]].
 ##
-AbelianSylow := function(po,t)
+BindGlobal( "AbelianSylow", function(po,t)
    local a,c,r,i,F,F1,B,B1,B2,vec;
    F := GF(po,t);
    F1 := GF(F,2);
@@ -72,14 +72,14 @@ AbelianSylow := function(po,t)
    B2 := RelativeBasis(B,B1);#change of canonical basis to B1
    vec := BasisVectors(B2);
    return List(vec, x -> Coefficients(B2,x*c));# this is A=<C> in GL(2,q)
-end;
+end );
 
-TwoSylow := function(po,t)
+BindGlobal( "TwoSylow", function(po,t)
    local A,g;
    A := AbelianSylow(po,t);
    g := DiagonalMat([Z(po,t)^0,(-1)*Z(po,t)^0]);
    return [A,g];
-end;
+end );
 
 #############################################################################
 ##
@@ -88,14 +88,14 @@ end;
 ## This function constructs the list of pairwise Kronecker products of the input
 ## lists L and M.
 ##
-KroneckerProductLists := function(L,M)
+BindGlobal( "KroneckerProductLists", function(L,M)
    local i,LM;
    LM := [];
    for i in [1..Length(M)] do
       Append( LM, List(L, x -> KroneckerProduct(x, M[i])));
    od;
    return LM;
-end;
+end );
 
 #############################################################################
 ##
@@ -104,7 +104,7 @@ end;
 ## Construct generators of the Sylow p-subgroup of GL(p^a,q), p|q-1. Such
 ## subgroups are absolutely irreducible.
 ##
-SylowSubgroupGL := function(p,a,po,t)
+BindGlobal( "SylowSubgroupGL", function(p,a,po,t)
    local q,c,C,w,S,h,H,K,l,L,n;
 
    # set up
@@ -146,7 +146,7 @@ SylowSubgroupGL := function(p,a,po,t)
    Add(L,H);
    Add(L,K);
    return L;
-end;
+end );
 
 #########################################################################
 ##

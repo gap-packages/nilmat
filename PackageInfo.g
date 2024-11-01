@@ -8,15 +8,6 @@
 ##  This file contains meta-information on the package. It is used by
 ##  the package loading mechanism and the upgrade mechanism for the
 ##  redistribution of the package via the GAP website.
-##  
-##  For the LoadPackage mechanism in GAP >= 4.4 only the entries
-##  .PackageName, .Version, .PackageDoc, .Dependencies, .AvailabilityTest
-##  .Autoload   are needed. The other entries are relevant if the
-##  package shall be distributed for other GAP users, in particular if it
-##  shall be redistributed via the GAP Website.
-##
-##  With a new release of the package at least the entries .Version, .Date and
-##  .ArchiveURL must be updated.
 
 SetPackageInfo( rec(
 
@@ -99,7 +90,6 @@ PackageDoc := rec(
   PDFFile   := "doc/manual.pdf",
   SixFile   := "doc/manual.six",
   LongTitle := "Computation with nilpotent matrix groups",
-  Autoload  := true
 ),
 
 Dependencies := rec(
@@ -111,7 +101,6 @@ Dependencies := rec(
 
 AvailabilityTest := ReturnTrue,
 BannerString := Concatenation("Loading Nilmat ", String( ~.Version ), "...\n"),
-Autoload := false,
 TestFile := "tst/testall.g",
 Keywords := ["nilpotent groups", "matrix groups"],
 

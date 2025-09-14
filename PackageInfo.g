@@ -93,7 +93,7 @@ PackageDoc := rec(
 ),
 
 Dependencies := rec(
-  GAP := ">=4.8",
+  GAP := ">=4.10",
   NeededOtherPackages := [["Polenta", ">=1.0"]],
   SuggestedOtherPackages := [],
   ExternalConditions := []

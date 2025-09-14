@@ -36,38 +36,8 @@ BindGlobal( "PAndPrimePart", function( elm, q )
     return [elm^(g.coeff2*b), elm^(g.coeff1*a)];
 end );
 
-BindGlobal( "IsCentralElement", function(H,a)
-    local h;
-    for h in GeneratorsOfGroup(H) do
-        if h*a <> a*h then return false; fi;
-    od;
-    return true;
-end );
-
-BindGlobal( "IsCentralSubgroup", function(H,U)
-    local h, a;
-    for h in GeneratorsOfGroup(H) do
-        for a in GeneratorsOfGroup(U) do
-            if h*a <> a*h then return false; fi;
-        od;
-    od;
-    return true;
-end );
-
-BindGlobal( "GroupsCommute", function(S,U)
-    local s, u, a, b;
-    s := GeneratorsOfGroup(S);
-    u := GeneratorsOfGroup(U);
-    for a in s do
-        for b in u do
-            if not a*b = b*a then return false; fi;
-        od;
-    od;
-    return true;
-end );
-
 BindGlobal( "OrbitStabGens", function(G, v)
-    local g, h, l, orb, trs, stb, c, i, w, j, U, s;
+    local g, h, l, orb, trs, stb, c, i, w, j, U, s, res;
 
     # set up
     g := GeneratorsOfGroup(G);
@@ -175,7 +145,7 @@ BindGlobal( "SecondCentralElement", function(G, H, l)
     # find initial element and check that H is non-abelian
     h := GeneratorsOfGroup(H);
     g := GeneratorsOfGroup(G);
-    a := First(h, x -> not IsCentralElement(H,x));
+    a := First(h, x -> not IsCentral(H,x));
     if IsBool(a) then return fail; fi;
 
     # find second central element
@@ -184,7 +154,7 @@ BindGlobal( "SecondCentralElement", function(G, H, l)
     while i < Length(g) do
         i := i+1;
         b := Comm(g[i],a);
-        if not IsCentralElement(H,b) then
+        if not IsCentral(H,b) then
             a := b;
             i := 0;
             c := c+1;
@@ -405,7 +375,7 @@ BindGlobal( "IsNilpotentMatGroupFF", function(G, l)
 
     Info( InfoNilMat, 1, "checking Jordan decomposition ");
     Info( InfoNilMat, 2, "  - checking [S,U] = 1 ");
-    if not GroupsCommute(S,U) then return false; fi;
+    if not IsCentral(S,U) then return false; fi;
     Info( InfoNilMat, 2, "  - checking that U is unipotent ");
     if not IsUnipotentMatGroup(U) then return false; fi;
 
@@ -417,7 +387,7 @@ BindGlobal( "IsNilpotentMatGroupFF", function(G, l)
 
     Info( InfoNilMat, 1, "checking pi-primary decomposition ");
     Info( InfoNilMat, 2, "  - check that pi-part C is central ");
-    if not IsCentralSubgroup(S, C) then return false; fi;
+    if not IsCentral(S, C) then return false; fi;
     Info( InfoNilMat, 2, "  - check wether pi'-part B is abelian ");
     if IsAbelian(B) then return true; fi;
 
@@ -450,7 +420,7 @@ BindGlobal( "IsNilpotentMatGroupFF", function(G, l)
         Info( InfoNilMat, 1, "determine Sylow ",q,"-subgroup of B");
         W := SylowSubgroupOfNilpotentMatGroupFF(B, b, q);
         for V in syl do
-            if not GroupsCommute(W,V) then return false; fi;
+            if not IsCentral(W,V) then return false; fi;
         od;
         Add( syl, W);
     od;
@@ -480,7 +450,7 @@ BindGlobal( "IsNilpotentMatGroupRN", function(G, l)
     U := GroupByGenerators(List(d, x -> x[2]*x[1]^-1 + One(G)));
 
     # check [S,U] = 1 and IsUnipotent(U)
-    if not GroupsCommute(S,U) then return false; fi;
+    if not IsCentral(S,U) then return false; fi;
     if not IsUnipotentMatGroup(U) then return false; fi;
     if IsAbelian(S) then return true; fi;
 
@@ -502,7 +472,7 @@ BindGlobal( "IsNilpotentMatGroupRN", function(G, l)
 
     # check that the kernel is central
     K := GroupByGenerators(kern);
-    if not IsCentralSubgroup(S, K) then return false; fi;
+    if not IsCentral(S, K) then return false; fi;
 
     # that's it
     return true;

@@ -126,7 +126,7 @@ BindGlobal( "NilPrimMatGroups", function(n, po, l)
     Cnq := List(Cnq, x -> KroneckerProduct(x, IdentityMat(2, GF(q))));
 
     # set up for additions
-    t := PLength((q^n - 1), 2);
+    t := PValuation((q^n - 1), 2);
     e := IdentityMat(m, GF(q));
     d := KroneckerProduct(e, DiagonalMat([Z(q)^0,-1*Z(q)^0]));
     s := KroneckerProduct(e, SpecialMatrix(po, l));
@@ -155,7 +155,7 @@ InstallGlobalFunction( SizesOfNilpotentPrimitiveMatGroups, function(n, po, l)
 
     q := po^l;
     m := n/2;
-    t := PLength((q^n - 1), 2);
+    t := PValuation((q^n - 1), 2);
 
     # start with abelian primitive groups
     Pnq := OrdersPAG(n, po, l);

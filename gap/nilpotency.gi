@@ -15,10 +15,6 @@
 ##
 ## Some helpers
 ##
-BindGlobal( "PLength", function(a,p)
-    return Length(Filtered(Factors(a), x -> x = p));
-end );
-
 BindGlobal( "PrimeFactors", function(list)
     local prm;
     prm := Flat(List(list, Factors));
@@ -152,7 +148,7 @@ InstallGlobalFunction( ClassLimit, function(n, F)
     # loop over relevant primes
     m := 1;
     for t in f do
-        s := PLength(Size(F)-1,t);
+        s := PValuation(Size(F)-1,t);
         m := Maximum(m, t*s - s + 1);
     od;
 

@@ -41,7 +41,7 @@ end );
 BindGlobal( "CyclicSylow", function(m,p)
    local o, t, o1;
    o := Order(m);
-   t := PLength(o,p);    #equals 0 if p does not divide o
+   t := PValuation(o,p);    #equals 0 if p does not divide o
    o1 := o/(p^t);
    return m^o1;
 end );
@@ -175,7 +175,7 @@ function(n,po,t)
     #First construct prime factorization of n.
     l1 := Filtered([2..n],x -> IsPrimeInt(x));
     l2 := Filtered(l1, x -> IsInt(n/x));
-    r := List(l2, x -> PLength(n,x));
+    r := List(l2, x -> PValuation(n,x));
     k := Length(l2);
 
     # an easy case

@@ -24,7 +24,7 @@ InstallGlobalFunction( MonomialNilpotentMatGroup, function(n)
    # First construct prime factorization of n.
    l1 := Filtered([2..n],x -> IsPrimeInt(x)); #list of primes <=n
    l2 := Filtered(l1, x -> IsInt(n/x)); #list of prime x dividing n
-   r := List(l2, x -> PLength(n,x)); #max powers of x in n
+   r := List(l2, x -> PValuation(n,x)); #max powers of x in n
    k := Length(l2);
 
    if k=1 then return Group(MonomialSylow(l2[1],r[1]));fi;

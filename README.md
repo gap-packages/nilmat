@@ -23,21 +23,19 @@ The `Nilmat` package banner should appear on the screen.
 ## Documentation
 
 For details on how to use the Nilmat package see the HTML
-package documentation in the `htm` subdirectory, or the PDF file
+package documentation in `doc/chap0_mj.html`, or the PDF file
 `doc/manual.pdf`.
-Before using the package, please pay attention to the bugfix
-information in Chapter 4 of the manual.
 
-  Alla Detinko (Galway)
-  Bettina Eick (Braunschweig)
-  Dane Flannery (Galway)
+- Alla Detinko
+- Bettina Eick
+- Dane Flannery
 
 
 ## Bug reports and feature requests
 
 Please submit bug reports and feature requests via our GitHub issue tracker:
 
-  <https://github.com/gap-packages/nilmat/issues>
+<https://github.com/gap-packages/nilmat/issues>
 
 
 ## License
@@ -58,4 +56,4 @@ of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 See the GNU General Public License for more details; the full text
 is in the file LICENSE and also available at:
-  <https://www.gnu.org/licenses/>
+<https://www.gnu.org/licenses/>

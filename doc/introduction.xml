@@ -8,7 +8,7 @@ number field <M>&QQ;</M>.
 <P/>
 <Package>Nilmat</Package> contains an implementation of algorithms
 developed over the past few years, available in theoretical form
-in the papers <Cite Key="DF04"/>,<Cite Key="DF05b"/>,<Cite Key="DF06"/>,<Cite Key="DF07"/>.
+in the papers <Cite Key="DF04"/>, <Cite Key="DF05b"/>, <Cite Key="DF06"/>, <Cite Key="DF07"/>.
 The theory of nilpotent
 matrix groups is an essential part of linear group theory. Many
 structural and classification results for nilpotent linear groups
@@ -20,9 +20,9 @@ this package, further general information, and historical remarks,
 see <Cite Key="DF06"/> and <Cite Key="DF07"/>.
 <P/>
 One purpose of <Package>Nilmat</Package> is testing nilpotency of a
-subgroup <M>G</M> of <M>GL(n,&PP;)</M>. If <M>G&lt; GL(n,&QQ;)</M> is found to be
+subgroup <M>G</M> of <M>GL(n,&PP;)</M>. If <M>G &lt; GL(n,&QQ;)</M> is found to be
 nilpotent then the package provides a function for deciding
-whether <M>G</M> is finite. If <M>G&lt; GL(n,q)</M> is found to be nilpotent
+whether <M>G</M> is finite. If <M>G &lt; GL(n,q)</M> is found to be nilpotent
 then the package provides a function that returns the Sylow
 subgroups of <M>G</M>. Additional functions allow one to test whether a
 nilpotent subgroup <M>G</M> of <M>GL(n,&PP;)</M> is completely reducible or

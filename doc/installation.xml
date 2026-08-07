@@ -2,7 +2,7 @@
 <Heading>Installation</Heading>
 <Index>Nilmat package</Index>
 <P/>
-The Package <Package>Nilmat</Package> is a &GAP; code only package and requires
+The package <Package>Nilmat</Package> is a &GAP; code only package and requires
 no external binaries.
 <P/>
 Once <Package>Nilmat</Package> is loaded, calls to the &GAP; functions
@@ -15,9 +15,5 @@ one wishes to use the former &GAP; functions for matrix groups
 over <M>GF(q)</M> or <M>&QQ;</M>.
 <P/>
 For testing nilpotency and finiteness over <M>&QQ;</M>, the &GAP;
-package <Package>Polenta</Package> is also required. Note that <C>Nilmat</C>
-does not use functions from <Package>Polenta</Package> which depend on
-<C>KASH</C>. Hence to use <Package>Nilmat</Package>, <C>KASH</C> installation is not
-required, and all <Package>Nilmat</Package> functions run under both
-Windows and Linux.
+package <Package>Polenta</Package> is also required.
 </Chapter>

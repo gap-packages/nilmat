@@ -31,7 +31,7 @@ matrices) and <K>false</K> otherwise.
 </Description>
 </ManSection>
 <ManSection>
-<Func Name="ClassLimit" Arg="n , F"/>
+<Func Name="ClassLimit" Arg="n, F"/>
 <Description>
 returns an upper bound on the nilpotency class of nilpotent
 subgroups of <M>GL(n,&PP;)</M>, <M>&PP;=GF(q)</M> or <M>&QQ;</M>.
@@ -40,7 +40,7 @@ subgroups of <M>GL(n,&PP;)</M>, <M>&PP;=GF(q)</M> or <M>&QQ;</M>.
 <ManSection>
 <Func Name="AbelianNormalSeries" Arg="G, l"/>
 <Description>
-Here <M>G&lt; GL(n,q)</M> and <A>l</A> is a positive integer. If <A>G</A> is nilpotent
+Here <M>G &lt; GL(n,q)</M> and <A>l</A> is a positive integer. If <A>G</A> is nilpotent
 of class at most <A>l</A> and the order of <A>G</A> is coprime to the
 characteristic of <M>GF(q)</M>, then this function determines a normal
 series with abelian factors for <A>G</A>. Otherwise, the function may
@@ -69,13 +69,13 @@ package.
 <Description>
 For a subgroup <M>G</M> of <M>GL(n,&PP;)</M>, <M>&PP;=GF(q)</M> or <M>&QQ;</M>, returns
 <K>true</K> if <A>G</A> is nilpotent and <K>false</K> otherwise. This function is
-also installed as method for the property <C>IsNilpotentGroup</C>.
+also installed as a method for the property <C>IsNilpotentGroup</C>.
 <P/>
 We include a brief description of the algorithm behind this function.
 Let <M>X</M> be a generating set of the given group <A>G</A>. The first stage
 of testing nilpotency of <M>G</M> is reduction to the semisimple part <M>S</M>
 of <M>G</M>. The procedure for reducing to the semisimple case is based on
-the <Package>Nilmat</Package> functions <C>JordanSplitting</C> and <C>IsUnipotentGroup</C>
+the <Package>Nilmat</Package> functions <C>JordanSplitting</C> and <C>IsUnipotentMatGroup</C>
 described in the previous section. In the following, we assume that
 all elements of <M>X</M> are semisimple matrices.
 <P/>
@@ -94,7 +94,7 @@ above. If so, then we construct the kernel of the congruence
 homomorphism and test whether this is central in <M>G</M>. We refer to
 <Cite Key="DF07"/> for details. Note that the construction of the
 congruence homomorphism and its kernel is based on the methods of
-the Package <Package>Polenta</Package>; see also <Cite Key="AE05"/> for
+the package <Package>Polenta</Package>; see also <Cite Key="AE05"/> for
 background.
 <P/>
 The nilpotency testing functions of the package <Package>Nilmat</Package>
@@ -102,7 +102,7 @@ have advantages over the standard &GAP; methods for
 <C>IsNilpotentGroup</C>. When <M>&PP;</M> is finite, the <Package>Nilmat</Package>
 functions have better runtimes for all input groups we tested.
 When <M>&PP;</M> is infinite, the standard &GAP; functions frequently do
-not terminate at all in sensible time; on the other hand, the
+not terminate at all in a sensible time; on the other hand, the
 <Package>Nilmat</Package> functions always terminate, with comparatively
 small runtimes (see the examples in Chapter 3).
 </Description>
@@ -123,7 +123,7 @@ The function exploits the by-products of the nilpotency testing
 functions in <Package>Nilmat</Package> and hence runs particularly fast
 (and usually faster than the standard &GAP; method for testing
 finiteness) if they have been used to check nilpotency. This
-function is also installed as method for the property <C>IsFinite</C>.
+function is also installed as a method for the property <C>IsFinite</C>.
 </Description>
 </ManSection>
 <ManSection>
@@ -133,7 +133,7 @@ For a nilpotent subgroup <M>G</M> of <M>GL(n,&PP;)</M>, <M>&PP;=GF(q)</M>, retur
 the list of all Sylow subgroups. The advantage of this function over
 the &GAP; function <C>SylowSubgroup</C> is that the former function
 returns all Sylow subgroups of <M>G</M> without first computing all prime
-divisors of the order of <M>G</M>. This function is installed as method
+divisors of the order of <M>G</M>. This function is installed as a method
 for <C>SylowSystem</C> for nilpotent matrix groups.
 </Description>
 </ManSection>
@@ -160,22 +160,22 @@ For a nilpotent subgroup <M>G</M> of <M>GL(n,&PP;)</M>, <M>&PP;=GF(q)</M> or <M>
 Another main part of <Package>Nilmat</Package> is a library of nilpotent
 primitive matrix groups over finite fields.
 <ManSection>
-<Func Name="NilpotentPrimitiveMatGroups" Arg="n , p , l"/>
+<Func Name="NilpotentPrimitiveMatGroups" Arg="n, p, l"/>
 <Description>
 returns a complete and irredundant list <M>L</M> of the conjugacy class
 representatives of the nilpotent primitive subgroups of <M>GL(n,p^l)</M>.
 The list <M>L</M> contains non-abelian (i.e. non-cyclic) subgroups only
 if <M>n=2m</M>, <M>m</M> is odd, and <M>p^l \equiv 3</M> mod <M>4</M>. Every non-abelian
 group in <M>L</M> is given by three generators. Note that the groups in
-<M>L</M> know their orders i.e. the attribute <C>Size</C> has been set for these
+<M>L</M> know their orders, i.e. the attribute <C>Size</C> has been set for these
 groups.
 </Description>
 </ManSection>
 <ManSection>
-<Func Name="SizesOfNilpotentPrimitiveMatGroups" Arg="n , p , l"/>
+<Func Name="SizesOfNilpotentPrimitiveMatGroups" Arg="n, p, l"/>
 <Description>
 returns the list of orders of groups in the list <M>L</M> output by
-<C>NilpotentPrimitiveMatGroups( <A>n</A> , <A>p</A> , <A>l</A> )</C>.
+<C>NilpotentPrimitiveMatGroups( <A>n</A>, <A>p</A>, <A>l</A> )</C>.
 </Description>
 </ManSection>
 </Section>
@@ -184,7 +184,7 @@ returns the list of orders of groups in the list <M>L</M> output by
 In this section we describe various functions designed to produce
 interesting examples of nilpotent matrix groups.
 <ManSection>
-<Func Name="MaximalAbsolutelyIrreducibleNilpotentMatGroup" Arg="n , p , l"/>
+<Func Name="MaximalAbsolutelyIrreducibleNilpotentMatGroup" Arg="n, p, l"/>
 <Description>
 constructs the unique (up to conjugacy) maximal absolutely
 irreducible nilpotent subgroup of <M>GL(n,p^l)</M> if such a group

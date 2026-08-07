@@ -67,9 +67,9 @@ false
 # doc/examples.xml:83-91
 gap> g9 := ReducibleNilpotentMatGroup(2,36,5,2);
 <matrix group with 21 generators>
-gap> SylowSubgroupsOfNilpotentFFMatGroup(g9);
-[ <matrix group with 5 generators>, <matrix group with 6 generators>, 
-  <matrix group with 1 generator> ]
+gap> x := SylowSubgroupsOfNilpotentFFMatGroup(g9);;
+gap> List(x, g -> Length(GeneratorsOfGroup(g)));
+[ 5, 6, 1 ]
 gap> IsCompletelyReducibleNilpotentMatGroup(g9);
 false
 

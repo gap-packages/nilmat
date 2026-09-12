@@ -26,6 +26,9 @@ For details on how to use the Nilmat package see the HTML
 package documentation in `doc/chap0_mj.html`, or the PDF file
 `doc/manual.pdf`.
 
+
+## Authors
+
 - Alla Detinko
 - Bettina Eick
 - Dane Flannery

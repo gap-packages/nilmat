@@ -85,8 +85,8 @@ AbstractHTML :=
                
 PackageDoc := rec(
   BookName  := "Nilmat",
-  ArchiveURLSubset := ["doc", "htm"],
-  HTMLStart := "htm/chapters.htm",
+  ArchiveURLSubset := ["doc"],
+  HTMLStart := "doc/chap0_mj.html",
   PDFFile   := "doc/manual.pdf",
   SixFile   := "doc/manual.six",
   LongTitle := "Computation with nilpotent matrix groups",

@@ -1,0 +1,52 @@
+<Chapter Label="Introduction">
+<Heading>Introduction</Heading>
+<Index>Nilmat package</Index>
+<P/>
+This package is for computing with nilpotent matrix groups over a
+field <M>&PP;</M>, where <M>&PP;</M> is a finite field <M>GF(q)</M> or the rational
+number field <M>&QQ;</M>.
+<P/>
+<Package>Nilmat</Package> contains an implementation of algorithms
+developed over the past few years, available in theoretical form
+in the papers <Cite Key="DF04"/>, <Cite Key="DF05b"/>, <Cite Key="DF06"/>, <Cite Key="DF07"/>.
+The theory of nilpotent
+matrix groups is an essential part of linear group theory. Many
+structural and classification results for nilpotent linear groups
+are known (see e.g. <Cite Key="Sup76"/> and <Cite Key="Weh73"/>), and specialized methods
+for handling these groups have been developed. The computational
+advantages of nilpotent linear groups have been addressed in
+<Cite Key="DF05a"/>. For a full description of most of the algorithms of
+this package, further general information, and historical remarks,
+see <Cite Key="DF06"/> and <Cite Key="DF07"/>.
+<P/>
+One purpose of <Package>Nilmat</Package> is testing nilpotency of a
+subgroup <M>G</M> of <M>GL(n,&PP;)</M>. If <M>G &lt; GL(n,&QQ;)</M> is found to be
+nilpotent then the package provides a function for deciding
+whether <M>G</M> is finite. If <M>G &lt; GL(n,q)</M> is found to be nilpotent
+then the package provides a function that returns the Sylow
+subgroups of <M>G</M>. Additional functions allow one to test whether a
+nilpotent subgroup <M>G</M> of <M>GL(n,&PP;)</M> is completely reducible or
+unipotent, and to compute the order of <M>G</M> if it is finite.
+<P/>
+Another feature of <Package>Nilmat</Package> is a library of nilpotent
+primitive matrix groups. Specifically, for each integer <M>n&gt;1</M> and
+prime power <M>q</M>, this library returns a complete and irredundant
+list of <M>GL(n,q)</M>-conjugacy class representatives of the
+nilpotent primitive subgroups of <M>GL(n,q)</M>.
+<P/>
+The problem of constructing nilpotent matrix groups is interesting
+in its own right. We have included in the package functions
+concerned with this problem. For example, one such function
+constructs maximal absolutely irreducible nilpotent subgroups of
+<M>GL(n,q)</M>.
+<P/>
+Related research on solvable and polycyclic matrix groups was
+carried out by Björn Assmann and Bettina Eick in
+<Cite Key="AE05"/> and <Cite Key="AE07"/>. Most of the algorithms in <Cite Key="AE05"/> were
+implemented in the &GAP; package <Package>Polenta</Package>, on which
+<Package>Nilmat</Package> partially relies.
+<P/>
+This work has emanated from research conducted with the financial
+support of Science Foundation Ireland and the German Academic
+Exchange Service (DAAD).
+</Chapter>
